@@ -7,7 +7,7 @@ export const matches: Match[] = [
     time: '15:00',
     homeTeam: 'ХИМИК',
     awayTeam: 'БАРЫС',
-    homeLogo: 'https://cdn.poehali.dev/files/29223e6c-f8e7-4c11-862e-43a73127e209.jpg',
+    homeLogo: 'https://cdn.poehali.dev/files/78549bc1-6eff-42f9-9d52-2b0cb4954893.png',
     awayLogo: '🐆',
     status: 'scheduled',
     arena: 'Ледовая арена Резекне (2 020)'
