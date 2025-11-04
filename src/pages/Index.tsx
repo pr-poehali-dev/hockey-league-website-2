@@ -222,7 +222,7 @@ export default function Index() {
               <Badge variant="secondary" className="text-sm font-bold">ТХЛ • 3 ТУР</Badge>
             </div>
 
-            {['2 ноября', '3 ноября', '1 ноября'].map((date) => (
+            {['2 ноября', '3 ноября'].map((date) => (
               <div key={date} className="space-y-3">
                 <h3 className="text-xl font-bold text-primary uppercase tracking-wide">{date}</h3>
                 <div className="grid gap-3">
