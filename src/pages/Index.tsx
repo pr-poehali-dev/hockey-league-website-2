@@ -50,7 +50,7 @@ const teams: Team[] = [
   { id: 6, name: 'ГОРНЯК', logo: '⛏️', games: 2, wins: 1, overtime: 0, losses: 1, goalsFor: 7, goalsAgainst: 4, diff: 3, points: 3 },
   { id: 7, name: 'НЕФТЕХИМИК', logo: '🐺', games: 2, wins: 1, overtime: 0, losses: 1, goalsFor: 7, goalsAgainst: 6, diff: 1, points: 3 },
   { id: 8, name: 'ВИТЯЗЬ', logo: '⚔️', games: 2, wins: 1, overtime: 0, losses: 1, goalsFor: 9, goalsAgainst: 9, diff: 0, points: 3 },
-  { id: 9, name: 'ХИМИК', logo: '🧪', games: 2, wins: 1, overtime: 0, losses: 1, goalsFor: 4, goalsAgainst: 4, diff: 0, points: 3 },
+  { id: 9, name: 'ХИМИК', logo: 'https://cdn.poehali.dev/files/29223e6c-f8e7-4c11-862e-43a73127e209.jpg', games: 2, wins: 1, overtime: 0, losses: 1, goalsFor: 4, goalsAgainst: 4, diff: 0, points: 3 },
   { id: 10, name: 'ЦСК ВВС', logo: '✈️', games: 2, wins: 1, overtime: 0, losses: 1, goalsFor: 5, goalsAgainst: 7, diff: -2, points: 3 },
   { id: 11, name: 'ИЖСТАЛЬ', logo: '🔥', games: 2, wins: 1, overtime: 1, losses: 1, goalsFor: 3, goalsAgainst: 5, diff: -2, points: 2 },
   { id: 12, name: 'СПАРТАК', logo: '🔴', games: 2, wins: 1, overtime: 1, losses: 1, goalsFor: 7, goalsAgainst: 11, diff: -4, points: 2 },
@@ -67,7 +67,7 @@ const matches: Match[] = [
     time: '15:00',
     homeTeam: 'ХИМИК',
     awayTeam: 'БАРЫС',
-    homeLogo: '🧪',
+    homeLogo: 'https://cdn.poehali.dev/files/29223e6c-f8e7-4c11-862e-43a73127e209.jpg',
     awayLogo: '🐆',
     status: 'scheduled',
     arena: 'Ледовая арена Резекне (2 020)'
@@ -237,7 +237,11 @@ export default function Index() {
                         <CardContent className="p-4">
                           <div className="flex items-center justify-between gap-4">
                             <div className="flex items-center gap-3 flex-1">
-                              <div className="text-2xl md:text-3xl">{match.homeLogo}</div>
+                              {match.homeLogo.startsWith('http') ? (
+                                <img src={match.homeLogo} alt={match.homeTeam} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
+                              ) : (
+                                <div className="text-2xl md:text-3xl">{match.homeLogo}</div>
+                              )}
                               <div className="font-bold text-sm md:text-base">{match.homeTeam}</div>
                             </div>
 
@@ -264,7 +268,11 @@ export default function Index() {
 
                             <div className="flex items-center gap-3 flex-1 justify-end">
                               <div className="font-bold text-sm md:text-base text-right">{match.awayTeam}</div>
-                              <div className="text-2xl md:text-3xl">{match.awayLogo}</div>
+                              {match.awayLogo.startsWith('http') ? (
+                                <img src={match.awayLogo} alt={match.awayTeam} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
+                              ) : (
+                                <div className="text-2xl md:text-3xl">{match.awayLogo}</div>
+                              )}
                             </div>
                           </div>
                         </CardContent>
@@ -312,7 +320,11 @@ export default function Index() {
                       </td>
                       <td className="p-3">
                         <div className="flex items-center gap-3">
-                          <div className="text-2xl">{team.logo}</div>
+                          {team.logo.startsWith('http') ? (
+                            <img src={team.logo} alt={team.name} className="w-8 h-8 object-contain" />
+                          ) : (
+                            <div className="text-2xl">{team.logo}</div>
+                          )}
                           <span className="font-bold text-sm md:text-base">{team.name}</span>
                         </div>
                       </td>
@@ -358,7 +370,11 @@ export default function Index() {
                 <div className="bg-card/50 rounded-xl p-6">
                   <div className="flex items-center justify-between">
                     <div className="text-center flex-1">
-                      <div className="text-5xl mb-3">{selectedMatch.homeLogo}</div>
+                      {selectedMatch.homeLogo.startsWith('http') ? (
+                        <img src={selectedMatch.homeLogo} alt={selectedMatch.homeTeam} className="w-16 h-16 md:w-20 md:h-20 object-contain mx-auto mb-3" />
+                      ) : (
+                        <div className="text-5xl mb-3">{selectedMatch.homeLogo}</div>
+                      )}
                       <div className="font-bold text-lg">{selectedMatch.homeTeam}</div>
                       <div className="text-sm text-muted-foreground">Латвия 🇱🇻</div>
                     </div>
@@ -381,7 +397,11 @@ export default function Index() {
                     )}
 
                     <div className="text-center flex-1">
-                      <div className="text-5xl mb-3">{selectedMatch.awayLogo}</div>
+                      {selectedMatch.awayLogo.startsWith('http') ? (
+                        <img src={selectedMatch.awayLogo} alt={selectedMatch.awayTeam} className="w-16 h-16 md:w-20 md:h-20 object-contain mx-auto mb-3" />
+                      ) : (
+                        <div className="text-5xl mb-3">{selectedMatch.awayLogo}</div>
+                      )}
                       <div className="font-bold text-lg">{selectedMatch.awayTeam}</div>
                       <div className="text-sm text-muted-foreground">Латвия 🇱🇻</div>
                     </div>
